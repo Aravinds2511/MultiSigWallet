@@ -13,7 +13,6 @@ contract Utilities is Test {
         return user;
     }
 
-    /// @notice create users with 100 ether balance
     function createUsers(uint256 userNum) external returns (address payable[] memory) {
         address payable[] memory users = new address payable[](userNum);
         for (uint256 i = 0; i < userNum; i++) {
@@ -22,11 +21,5 @@ contract Utilities is Test {
             users[i] = user;
         }
         return users;
-    }
-
-    /// @notice move block.number forward by a given number of blocks
-    function mineBlocks(uint256 numBlocks) external {
-        uint256 targetBlock = block.number + numBlocks;
-        vm.roll(targetBlock);
     }
 }
